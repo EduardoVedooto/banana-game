@@ -1,0 +1,9 @@
+body {
+  background: #ccc;
+  margin: 0;
+}
+
+body.fail {
+  transition: all 2s ease-in-out;
+  background: blue;
+}
