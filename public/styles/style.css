@@ -54,6 +54,10 @@ main {
   min-width: 300px;
 }
 
+#canvas:focus {
+  outline: none;
+}
+
 @media (max-width: 1000px) {
   main {
     padding: 0 20%;
