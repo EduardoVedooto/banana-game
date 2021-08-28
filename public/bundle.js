@@ -16,7 +16,7 @@
   \*********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Game)\n/* harmony export */ });\n/* harmony import */ var _Player__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Player */ \"./src/Player.ts\");\n\nclass Game {\n    constructor(canvas) {\n        this.canvas = canvas;\n        this.context = this.canvas.getContext('2d');\n    }\n    onKeyDown(key) {\n        if (key === \"ArrowLeft\") {\n            this.player.move(-1);\n        }\n        else if (key === \"ArrowRight\") {\n            this.player.move(1);\n        }\n    }\n    start() {\n        this.createPlayer();\n    }\n    createPlayer() {\n        this.player = new _Player__WEBPACK_IMPORTED_MODULE_0__.default(this.context, 0, 10);\n        this.player.draw();\n    }\n}\n\n\n//# sourceURL=webpack://banana_game/./src/Game.ts?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Game)\n/* harmony export */ });\n/* harmony import */ var _Player__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Player */ \"./src/Player.ts\");\n\nclass Game {\n    constructor(canvas) {\n        this.canvas = canvas;\n        this.context = this.canvas.getContext('2d');\n    }\n    onKeyDown(key) {\n        if (key === 'ArrowLeft') {\n            this.player.move(-1);\n        }\n        else if (key === 'ArrowRight') {\n            this.player.move(1);\n        }\n    }\n    start() {\n        this.createPlayer();\n    }\n    createPlayer() {\n        this.player = new _Player__WEBPACK_IMPORTED_MODULE_0__.default(this.context, 0, 10);\n        this.player.draw();\n    }\n}\n\n\n//# sourceURL=webpack://banana_game/./src/Game.ts?");
 
 /***/ }),
 
@@ -36,7 +36,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _Game__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Game */ \"./src/Game.ts\");\n\nconst canvas = document.getElementById('canvas');\nconst game = new _Game__WEBPACK_IMPORTED_MODULE_0__.default(canvas);\ngame.start();\ncanvas.addEventListener(\"keydown\", event => {\n    game.onKeyDown(event.key);\n});\n\n\n//# sourceURL=webpack://banana_game/./src/index.ts?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _Game__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Game */ \"./src/Game.ts\");\n\nconst canvas = document.getElementById('canvas');\nconst game = new _Game__WEBPACK_IMPORTED_MODULE_0__.default(canvas);\ngame.start();\ncanvas.addEventListener('keydown', (event) => {\n    game.onKeyDown(event.key);\n});\n\n\n//# sourceURL=webpack://banana_game/./src/index.ts?");
 
 /***/ })
 
