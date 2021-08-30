@@ -1,31 +1,51 @@
 import Player from './Player';
 
 export default class Game {
-  canvas: HTMLCanvasElement;
+  private canvas: HTMLCanvasElement;
 
-  context: CanvasRenderingContext2D;
+  private context: CanvasRenderingContext2D;
 
-  player: Player;
+  private player: Player;
+
+  private gameLoopID: number;
 
   constructor(canvas: HTMLCanvasElement) {
     this.canvas = canvas;
     this.context = this.canvas.getContext('2d');
   }
 
-  onKeyDown(key: string) {
-    if (key === 'ArrowLeft') {
-      this.player.move(-1);
-    } else if (key === 'ArrowRight') {
-      this.player.move(1);
+  onKeyDown(event: KeyboardEvent) {
+    switch (event.type) {
+      case 'keydown':
+        this.player.move(event.key);
+        break;
+      case 'keyup':
+        this.player.stopMove();
+        break;
+      default: break;
     }
   }
 
   start() {
     this.createPlayer();
+    this.startIntervals();
+  }
+
+  startIntervals() {
+    const { setInterval } = window;
+    this.gameLoopID = setInterval(() => this.gameLoop(), 1000 / 120);
+  }
+
+  gameLoop() {
+    this.clearScreen();
+    this.player.draw();
   }
 
   createPlayer() {
-    this.player = new Player(this.context, 0, 10);
-    this.player.draw();
+    this.player = new Player(this.context, this.canvas.width / 2, this.canvas.height - 26, './assets/sprites/alien.png', this.canvas.width);
+  }
+
+  clearScreen() {
+    this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
   }
 }
